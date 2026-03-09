@@ -1,0 +1,92 @@
+.about {
+     &-subtitle {
+          color: #20B8D4;
+     }
+     &-title {
+          font-size: 75px;
+          line-height: 93%;
+          @include xl-screen {
+               font-size: 72px;
+          }
+          @include sm-screen {
+               font-size: 50px;
+          }
+     }
+     &-paragraph {
+          line-height: 160%;
+          text-transform: full-size-kana;
+          color: #4B5563;
+          @include lg-screen {
+               margin-top: 20px;
+               max-width: 600px;
+          }
+     }
+}
+
+
+
+.about-three {
+     &-thumb {
+          @include xl-screen {
+               margin-bottom: 90px;
+          }
+          & > img {
+               border-radius: 50%;
+               border: 4px solid hsl(var(--white));
+               box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.08);
+          }
+          &-two {
+               bottom: -80px;
+               right: 93px;
+               border-radius: 50%;
+               border: 4px solid hsl(var(--white));
+               box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.08);
+          }
+     }
+     &-title {
+          line-height: 100%;
+          @include xl-screen {
+               font-size: 46px;
+          }
+          & span {
+               &::before {
+                    content: "";
+                    position: absolute;
+                    width: 203px;
+                    height: 73px;
+                    top: 63%;
+                    left: -13px;
+                    mask-image: url(../images/icon/about-three-title-shape.svg);
+                    background: #FFA800;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: contain;
+                    transform: translateY(-50%);
+                    z-index: -1;
+               } 
+          }
+     }
+}
+
+
+
+
+
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+.grid-item {
+  float: left;
+}
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}

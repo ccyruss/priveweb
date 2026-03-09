@@ -1,0 +1,42 @@
+.cta {
+     &-area {
+          & .section-title {
+               font-size: 150px;
+               @include xxxxl-screen {
+                 font-size: 147px;
+               }
+               @include xl-screen {
+                    font-size: 118px;
+               }
+               @include lg-screen {
+                    font-size: 89px;
+               }
+               @include msm-screen {
+                    font-size: 69px;
+               }
+
+          }
+          & .gallery-shape-1 {
+               filter: brightness(0) invert(1);
+          }
+          & .gallery-shape-2 {
+               filter: brightness(0) invert(1);
+          }
+          & .gallery-three-shape-1 {
+               filter: inherit !important;
+          }
+          & .gallery-three-shape-2 {
+               filter: inherit !important;
+          }
+     }
+     &-bg-shape {
+          bottom: -20px;
+     }
+}
+
+
+.cta-three {
+     &-bg-shape {
+          bottom: -110px;
+     }
+}

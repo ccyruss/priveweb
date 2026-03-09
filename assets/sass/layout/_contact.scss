@@ -1,0 +1,26 @@
+.contact-ip {
+     &-wrapper {
+          background: rgba(255, 255, 255, 0.21);
+          box-shadow: 0 15px 10px 0 rgba(242, 242, 242, 0.18);
+          border: 1px solid #e5e5e5;
+          border-radius: 20px;
+          @include xl-screen {
+               padding-inline-start: 20px;
+               padding-inline-end: 20px;
+          }
+
+     }
+     &-left {
+          max-width: 607px;
+          @include lg-screen {
+               margin-block-end: 30px;
+          }
+     }
+     &-map {
+          & iframe {
+               height: 350px;
+               border-radius: 14px;
+          }
+     }
+}
+

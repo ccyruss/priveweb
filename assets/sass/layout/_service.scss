@@ -1,0 +1,259 @@
+.service {
+    &-area {
+        background: #113A75;
+        padding-top: 170px;
+    }
+    &-container {
+       max-width: 1500px;
+    }
+    &-content {
+        transition: .4s;
+        &-2 {
+            & p {
+                font-size: 17px;
+                color: #4B5563;
+                margin-bottom: 0;
+                transform: translateY(5px);
+                visibility: hidden;
+                opacity: 0;
+                transition-delay: 0.2s;
+                transition: 0.3s;
+                transition-delay: 0s;
+            }
+        }
+    }
+    &-listing {
+        transition: .6s;
+        background: var(--main-two-600);
+        font-size: 16px;
+        font-weight: 400;
+        font-family: var(--body-font);
+        padding: 6px 38px;
+        rotate: -52deg;
+        white-space: nowrap;
+        transform: translate(0, -115px);
+        clip-path: polygon(27% 0, 76% 0, 100% 100%, 0% 100%);
+    }
+    &-button {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(30px);
+        transition: .4s;
+    }
+    &-btn {
+        width: 50px;
+        height: 50px;
+        line-height: 1;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--main-two-600);
+        border-radius: 50%;
+    }
+    &-title {
+        width: 500px;
+        opacity: 1;
+        transform: rotate(-90deg) translate(-210px, -211px);
+        font-weight: 400;
+        font-size: 40px;
+        text-transform: capitalize;
+        &-2 {
+            transform: translateY(5px);
+            visibility: hidden;
+            opacity: 0;
+            transition-delay: 0.2s;
+            transition: .3s;
+        }
+    }
+    &-bg-shape {
+	    position: absolute;
+        top: -86px;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+ }
+
+
+.row-custom {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    @include lg-screen {
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+
+}
+.col-custom {
+    flex: 0.4;
+    width: 188px;
+    height: 540px;
+    margin: 0 12px 0 12px;
+    background: #1B4683;
+    border-radius: 30px;
+    padding: 39px 50px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:first-child {
+        margin-left: 0;
+    }
+    &.active {
+        flex: 7;
+        background-image: url(../images/service/service-thumb.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        @include xl-screen {
+            padding: 39px 20px 39px 40px;
+        }
+        & .service {
+            &-item {
+                display: none;
+                &-2 {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: scale(1);
+                    transition-delay: 0.3s;
+                    transition: .3s;
+                }
+            }
+            &-content {
+                &-2 {
+                    & span {
+                        transform: translateY(0);
+                        visibility: visible;
+                        opacity: 1;
+                        transition-delay: 0.3s;
+                    }
+                    & p {
+                        transform: translateY(0);
+                        visibility: visible;
+                        opacity: 1;
+                        transition-delay: 0.4s;
+                        @include xl-screen {
+                            font-size: 14px;
+                        }
+                   }
+                }
+            }
+            &-listing {
+	            transform: translate(-34px, -88px);
+                @include xl-screen {
+                    clip-path: none;
+                    rotate: 0deg;
+                    padding: 6px 16px;
+                    transform: translate(-22px, 0);
+                }
+            }
+            &-button {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            &-title {
+                &-2 {
+                    transform: translateY(0);
+                    visibility: visible;
+                    opacity: 1;
+                    transition-delay: 0.4s;
+                    font-weight: 600;
+                    font-size: 30px;
+                    color: hsl(var(--heading-color));
+                    margin-bottom: 24px;
+                    font-family: var(--plusjakarta-font);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.service-two {
+    &-location {
+        color: #6B7280;
+        letter-spacing: -0.03em;
+        & i {
+            color: #015FC9;
+        }
+    }
+    &-paragraph {
+        color: #6B7280;
+        font-size: 15px;
+    }
+    &-wrap {
+        background: #f3f3f3;
+        & span {
+            font-size: 15px;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            & i {
+                color: #FB5B32;
+                font-size: 16px;
+            }
+        }
+    }
+    &-star {
+        border-bottom: 1px dashed rgba(103, 103, 103, 0.32);
+    }
+    &-price {
+        & h6 {
+            font-size: 22px;
+            letter-spacing: -0.02em;
+        }
+        & p {
+            font-size: 14px;
+            letter-spacing: -0.03em;
+            color: #6B7280;
+        }
+    }
+}
+
+
+
+.service-three {
+    &-area {
+        padding: 140px 0 340px;
+    }
+    &-btn {
+        letter-spacing: 0.05em;
+    }
+    &-wrapper {
+        padding-inline-start: 40px;
+        padding-inline-end: 10px;
+        height: 422px;
+        @include xl-screen {
+            padding-inline-start: 30px;
+        } 
+        @include lg-screen {
+            margin-block-end: 30px;
+        } 
+
+        &.two {
+            background: #EEE9E9;
+        }
+        &.three {
+            background: #E0F4F3;
+        }
+    }
+    &-title {
+        @include xl-screen {
+            font-size: 26px;
+        } 
+    }
+    &-shape {
+        bottom: -100px;
+    }
+    &-bottom-area {
+        margin-top: -270px;
+    }
+    &-thumb {
+        text-align: right;
+    }
+
+
+}

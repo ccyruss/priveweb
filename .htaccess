@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteBase /Prive-Web/
+Options -MultiViews
+
+# Manual SEO Rules
+RewriteRule ^about-us/?$ about.php [L,QSA]
+RewriteRule ^contact/?$ contact.php [L,QSA]
+RewriteRule ^tours/?$ tours.php [L,QSA]
+RewriteRule ^blog/?$ blog.php [L,QSA]
+RewriteRule ^gallery/?$ gallery.php [L,QSA]
+
+# Corporate pages
+RewriteRule ^corporate/mission-vision/?$ corporate.php?type=mission-vision [L,QSA]
+RewriteRule ^corporate/sustainability/?$ corporate.php?type=sustainability [L,QSA]
+
+# Dynamic Details
+RewriteRule ^tour/([^/]+)/?$ tour-details.php?s=$1 [L,QSA]
+RewriteRule ^blog/([^/]+)/?$ blog-details.php?s=$1 [L,QSA]

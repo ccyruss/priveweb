@@ -1,0 +1,121 @@
+
+.cursor-outer {
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 180px;
+    height: 180px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    z-index: 10000000;
+    opacity: 0.5;
+    transition: all 0.08s ease-out;
+}
+.mouseCursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translateZ(0);
+    visibility: hidden;
+    text-align: center;
+}
+.cursor-inner {
+    margin-left: -3px;
+    margin-top: -3px;
+    width: 6px;
+    height: 6px;
+    z-index: 10000001;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+        margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    & span {
+        color: var(--tp-common-black);
+        opacity: 0;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size: 18px;
+
+        &>span {
+            margin-top: 0px;
+            display: inline-block;
+        }
+    }
+
+    &.cursor-big {
+        & span {
+            opacity: 1;
+        }
+    }
+}
+
+.mouseCursor {
+    &.cursor-big {
+        width: 180px;
+        height: 180px;
+        line-height: 1;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--main-two-600);
+        color: var(--heading-color);
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 50%;
+    }
+}
+
+.cursor-4 {
+    &.cursor-big {
+        background: none;
+    }
+}
+
+.mouseCursor.cursor-big {
+    &.cursor-outer {
+        display: none;
+    }
+}
+
+.tp-cursor-point-area {
+    cursor: none;
+}
+
+.cursor-inner {
+    &.cursor-big {
+        overflow: hidden;
+
+        & .inner-text-2 {
+            display: none;
+            background: none;
+
+            & span {
+                color: var(--tp-theme-primary);
+            }
+        }
+
+        & .inner-text-1 {
+            display: inline-block;
+        }
+
+        &.active {
+            overflow: hidden;
+            background: none;
+            width: 100px;
+            height: 100px;
+
+            & .inner-text-2,
+            .inner-text-3,
+            .inner-text-4 {
+                display: inline-block;
+                background: none;
+            }
+
+            & .inner-text-1 {
+                display: none;
+            }
+
+        }
+    }
+}

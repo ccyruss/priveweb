@@ -1,0 +1,35 @@
+.section {
+     &-subtitle {
+          color: #20b8d4;
+     }
+     &-title {
+          font-size: 70px;
+          line-height: 89%;
+          @include xl-screen {
+               font-size: 59px;
+          }
+          @include md-screen {
+               font-size: 50px;
+          }
+          @include msm-screen {
+               font-size: 40px
+          }
+          
+
+     }
+     &-paragraph {
+          max-width: 730px;
+          margin: auto;
+          margin-bottom: 0;
+     }
+}
+
+
+.text-invert > div {
+     background-size: 200% 100%;
+     background-position-x: 100%;
+     color: transparent;
+     background-clip: text;
+     -webkit-background-clip: text;
+     background-image: linear-gradient(to right, rgb(3, 37, 50) 50%, rgb(3, 37, 50, .35) 50%);
+}

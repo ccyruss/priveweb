@@ -1,0 +1,87 @@
+.footer {
+     &-col {
+          &-two {
+               max-width: 324px;
+               margin: auto;
+          }
+          &-four {
+               margin-inline-start: 80px;
+               @include msm-screen {
+                    margin-inline-start: 0;
+               }
+          }
+     }
+     &-right {
+          margin-inline-start: 130px;
+          @include xl-screen {
+               margin-inline-start: 0;
+          }
+     }
+     &-wrapper {
+          &::before {
+               content: "";
+               position: absolute;
+               width: 1px;
+               height: 100%;
+               top: 0;
+               left: 24%;
+               background: rgba(140, 140, 140, 0.2);
+               @include xl-screen {
+                    display: none;
+               }
+          }
+          &::after {
+               content: "";
+               position: absolute;
+               width: 1px;
+               height: 100%;
+               top: 0;
+               right: 40%;
+               background: rgba(140, 140, 140, 0.2);
+               @include xl-screen {
+                    display: none;
+               }
+          }
+     }
+     &-link {
+          color: #6A7894;
+          &:hover {
+               color: var(--main-two-600);
+          }
+     }
+     &-form-input {
+          font-size: 14px;
+          color: #6a7894;
+          &::placeholder {
+               color: #6a7894;
+          }
+     }
+     &-copyright-wrap {
+          @include xl-screen {
+               justify-content: center !important;
+               row-gap: 10px;
+          } 
+     }
+     &-right {
+          flex-wrap: wrap;
+          @include xxxxl-screen {
+               margin-inline-start: 110px;
+          }
+          @include xxl-screen {
+               margin-inline-start: 0;
+          }
+     }
+     &-copyright-social {
+          @include sm-screen {
+               gap: 26px;
+          }
+          @include msm-screen {
+               gap: 26px;
+          }
+     }
+     &-copyright-wrap {
+          @include sm-screen {
+               text-align: center;
+          }
+     }
+}

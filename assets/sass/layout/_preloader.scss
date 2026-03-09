@@ -1,0 +1,201 @@
+/* ================================= preload Css Start =========================== */
+.loading-screen {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--white));
+  z-index: 1000;
+}
+
+.loading-screen .bar {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: transparent;
+}
+
+.loading-screen .top-bar {
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+}
+
+.loading-screen .down-bar {
+  bottom: 0;
+  top: auto;
+  right: 0;
+  left: auto;
+}
+
+.loading-screen .animation-preloader {
+  z-index: 1000;
+  width: 70%;
+  margin: auto;
+}
+
+.loading-screen .animation-preloader .spinner {
+  -webkit-animation: spinner-run 5s infinite linear;
+  animation: spinner-run 5s infinite linear;
+  margin-bottom: 0%;
+}
+.loading-screen .animation-preloader .spinner img {
+	width: 300px;
+	height: 150px;
+}
+
+
+
+
+.loading-screen .animation-preloader .txt-loading {
+  font: bold 4rem "Work Sans", sans-serif;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading {
+  color: var(--main-600);
+  position: relative;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:before {
+  -webkit-animation: letters-loading 4s infinite;
+  animation: letters-loading 4s infinite;
+  color: var(--main-two-600);
+  content: attr(data-text-preloader);
+  left: 0;
+  opacity: 0;
+  font-family: "Work Sans", sans-serif;
+  position: absolute;
+  top: -3px;
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.loading-screen .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
+
+@-webkit-keyframes spinner-run {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(80%);
+    transform: translateX(80%);
+  }
+}
+
+@keyframes spinner-run {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(80%);
+    transform: translateX(80%);
+  }
+}
+
+@-webkit-keyframes letters-loading {
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes letters-loading {
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .loading-screen .animation-preloader .spinner img {
+    width: 8em;
+  }
+
+  .loading-screen .animation-preloader .txt-loading {
+    font: bold 3.5em "Work Sans", sans-serif;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loading-screen .animation-preloader .spinner img {
+    width: 7em;
+  }
+
+  .loading-screen .animation-preloader .txt-loading {
+    font: bold 2em "Work Sans", sans-serif;
+  }
+}
+
+/* ================================= preload Css End ===========================  */

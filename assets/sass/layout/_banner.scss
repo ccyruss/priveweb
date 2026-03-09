@@ -1,0 +1,191 @@
+// Home One scss
+
+.banner {
+     &-area {
+          padding-block-start: 180px;
+          padding-block-end: 195px;
+     }
+     &-title {
+          font-size: 144px;
+          line-height: 88%;
+          @include xxxxl-screen {
+               font-size: 140px;
+          }
+          @include xl-screen {
+               font-size: 114px;
+          }
+          @include lg-screen {
+              font-size: 94px;
+          }
+          @include md-screen {
+               font-size: 70px;
+          }
+          @include sm-screen {
+               font-size: 50px;
+               line-height: 98%;
+          }
+     }
+     &-paragraph {
+          max-width: 602px;
+          @include md-screen {
+               max-width: 390px;
+          }
+     }
+     &-bg {
+          height: 619px !important;
+          @include xl-screen {
+               height: 570px !important;
+          }
+          @include lg-screen {
+               height: 540px !important;
+          }
+          @include md-screen {
+               height: 520px !important;
+          }
+          @include sm-screen {
+               height: 576px !important;
+          }
+          @include msm-screen {
+               height: 625px !important;
+          }
+          &::before {
+               content: "";
+               position: absolute;
+               width: 100%;
+               height: 100%;
+               bottom: 0;
+               left: 0;
+               background: linear-gradient(90deg, rgba(5, 3, 29, 0.7) 0%, rgba(5, 62, 103, 0.7) 100%);
+               z-index: -1;
+          }
+     }
+     &-bg-shape {
+          inset-block-end: -80px;
+     }
+}
+
+// Home two scss
+
+.banner-two {
+     &-area {
+          padding-block-start: 220px;
+          padding-block-end: 99px;
+          @include msm-screen {
+               padding-block-start: 110px;
+               padding-block-end: 60px;
+          }
+
+     }
+     &-bg {
+          height: 910px;
+     }
+     &-title {
+          font-size: 200px;
+          line-height: 55%;
+          @include xl-screen {
+               font-size: 169px;
+          }
+          @include lg-screen {
+               font-size: 159px;
+          }
+          @include md-screen {
+               font-size: 116px;
+          }
+          @include msm-screen {
+               font-size: 90px;
+          }
+          @include xsm-screen {
+               font-size: 76px;
+          }
+          & span {
+               font-size: 100px;
+               background: hsl(var(--white));
+               box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05);
+               padding: 0 12px;
+               line-height: .90;
+               border-radius: 10px;
+               @include md-screen {
+                    font-size: 85px;
+               }
+               @include msm-screen {
+                    font-size: 65px;
+               }
+               @include xsm-screen {
+                    font-size: 56px;
+               }
+          }
+     }
+}
+
+
+// Home three scss
+.banner-three {
+     &-space {
+          padding-block-start: 115px;
+          @include xxxxl-screen {
+	          padding: 0 30px 0;
+          } 
+     }
+     &-area {
+          padding: 220px 0 220px;
+          &::before {
+               content: "";
+               position: absolute;
+               width: 100%;
+               height: 100%;
+               top: 0;
+               left: 0;
+               background: linear-gradient(155deg, rgba(0, 0, 0, 0.53) 0%, rgba(0, 0, 0, 0.53) 64.29%, rgba(96, 77, 0, 0.53) 100%);
+               z-index: -1;
+          }
+     }
+     &-subtitle {
+          font-size: 15px;
+     }
+     &-title {
+          font-size: 90px;
+          line-height: 89%;
+          letter-spacing: -0.03em;
+          @include xl-screen {
+               font-size: 80px;
+          } 
+          @include sm-screen {
+               font-size: 62px;
+          } 
+          @include msm-screen {
+	          font-size: 58px;
+          } 
+          & span {
+               &::before {
+                    content: "";
+                    position: absolute;
+                    width: 502px;
+                    height: 73px;
+                    top: 63%;
+                    left: 0px;
+                    mask-image: url(../images/icon/banner-three-title-shape.svg);
+                    background: #FFA800;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: contain;
+                    transform: translateY(-50%);
+                    z-index: -1;
+                    @include xl-screen {
+                         width: 440px;
+                    } 
+                    @include sm-screen {
+                         width: 340px;
+                    } 
+               }
+          }
+     }
+     &-shape {
+          &-2 {
+               top: 50%;
+               transform: translateY(-50%);
+          }
+          &-4 {
+               bottom: -35px;
+          }
+     }
+}

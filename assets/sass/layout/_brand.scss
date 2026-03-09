@@ -1,0 +1,54 @@
+.brand {
+     &-area {
+          & .section-paragraph {
+               color: #6B7280;
+               max-width: 380px;
+               margin-left: 0;
+          }
+     }
+     &-active-media {
+          transition: all 0.7s ease-in-out;
+          transform: translateY(0%);
+     }
+     &-hover-media {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.7s ease-in-out;
+          transform: translateY(30%);
+          border-radius: 50%;
+          position: absolute;
+     }
+     &-wrapper {
+          border: 1px solid rgba(17, 58, 117, 0.16);
+          height: 197px;
+          @include xl-screen {
+               text-align: center;
+          }
+          &:hover {
+               .brand-active-media {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease-in-out;
+                    transform: translateY(-100%);
+               }
+               .brand-hover-media {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+               }
+          }
+          & img {
+               @include xl-screen {
+                    width: 80%;
+               }
+               @include lg-screen {
+                    width: 100%;
+               }
+          }
+     }
+}
+
+
+
+
+

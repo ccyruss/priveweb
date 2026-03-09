@@ -1,0 +1,41 @@
+.counter {
+     &-area {
+          padding-block-end: 160px;
+     }
+     &-title {
+          font-size: 144px;
+     }
+     &-button {
+        @include md-screen {
+            justify-content: left !important;
+        }
+    }
+    &-bg-plane-shape {
+        top: 64%;
+    }
+}
+
+
+.counter-two {
+    &-area {
+        padding-block-end: 220px;
+    }
+    &-title {
+        color: rgba(10, 37, 75, 0.09);
+        @include xl-screen {
+            font-size: 130px;
+        }
+    }
+    &-paragraph {
+        margin-block-start: -110px;
+        color: #043460;
+    }
+}
+
+
+
+.counter-three {
+    &-title {
+        color: #f2eadd;
+    }
+}

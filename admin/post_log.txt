@@ -1,0 +1,25 @@
+Array
+(
+    [title] => Prive Luxury Tourism
+    [email] => deneme@prive.com
+    [phone] => 02122345678
+    [instagram] => prive
+    [address] => Deneme Adresi
+    [keywords] => dasdasdas
+    [description_tr] => dasdas
+    [description_en] => asdas
+    [about_content_tr] => Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    [about_content_en] => Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    [about_status] => 1
+    [map_iframe] => <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2806764.9348830213!2d-114.95161010081414!3d46.0810711210887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1772888310575!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    [home_mission_title_tr] => Prive | Maceraya Hazır Mısınız?
+    [home_mission_title_en] => Prive | Are You Ready For Adventure?
+    [home_mission_desc_tr] => Hayallerinizdeki turu gerçeğe dönüştürüyoruz. Sizin için planlanmış özel rotalar ve eşsiz deneyimler.
+    [home_mission_desc_en] => We turn your dream tour into reality. Special routes and unique experiences planned just for you.
+    [corporate_content_tr] => 
+    [corporate_content_en] => 
+    [smtp_host] => 
+    [smtp_user] => admin
+    [smtp_pass] => admin123
+    [smtp_port] => 0
+)

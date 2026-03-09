@@ -1,0 +1,124 @@
+.project {
+     &-thumb {
+          overflow: hidden;
+          border-radius: 16px;
+          & img {
+               width: 100%;
+               transition: 0.9s;
+          }
+          &:hover {
+               & img {
+                    transform: scale(1.1) rotate(-2deg);
+               }
+               & .project-content {
+                    transform: perspective(400px) rotateX(0deg);
+               }
+          }
+     }
+     &-content {
+          bottom: 30px;
+          left: 30px;
+          width: 60%;
+          position: absolute;
+          display: inline-block;
+	     padding: 18px 20px 18px;
+          transform-origin: center;
+          background-color: hsl(var(--white));
+          transform: perspective(400px) rotateX(-90deg);
+          border-radius: 10px;
+          transition: all 0.5s ease-in-out;
+     }
+     &-btn {
+          width: 40px;
+          height: 40px;
+          line-height: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(0, 83, 98, 0.1);
+          border-radius: 50%;
+     }
+     &-bg-shape-1 {
+          @include md-screen {
+               display: none;
+          }
+     }
+     &-bg-shape-2 {
+          top: 12%;
+          @include md-screen {
+               display: none;
+          }
+     }
+}
+
+
+
+
+.project-two {
+     &-button {
+          @include md-screen {
+               margin-top: -30px;
+               margin-bottom: 60px;
+          }
+     }
+     &-wrapper {
+          &:hover {
+               & .project-two-thumb {
+                    transform: rotate(0deg);
+               }
+          }  
+     }
+     &-thumb {
+          border: 4px solid hsl(var(--white));
+          border-radius: 15px;
+          box-shadow: 0 9px 20px 0 rgba(17, 28, 43, 0.19);
+          transform: rotate(-12deg);
+          transition: .4s;
+     }
+     &-title {
+          @include xxxxl-screen {
+               font-size: 25px;
+          }
+     }
+     &-paragraph {
+          color: #6B7280;
+     }
+     &-text {
+          padding: 3px 38px;
+          rotate: -46deg;
+          white-space: nowrap;
+          clip-path: polygon(27% 0, 76% 0, 100% 100%, 0% 100%);
+          top: 16px;
+          left: -40px;
+     }
+}
+
+
+
+
+.project-three {
+     &-wrapper {
+          border: 1px solid #ffc860;
+     }
+}
+
+
+
+
+
+
+
+.travelor {
+     &-plane-shape {
+          top: 75%;
+     }
+     &-bg-shape {
+          top: -135px !important;
+     }
+}
+.travelor-ip {
+     &-bg-shape {
+          bottom: -40px;
+     }
+}
+

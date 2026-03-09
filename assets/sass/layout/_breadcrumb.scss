@@ -1,0 +1,39 @@
+.breadcrumb {
+     &-area {
+          padding: 260px 0 212px;
+          // margin-top: -115px;
+     }
+     &-title {
+          font-family: var(--heading-font);
+          font-weight: 700;
+          font-size: 200px;
+          line-height: 76%;
+          text-transform: uppercase;
+          color: #172b47;
+          white-space: nowrap;
+          @include xxl-screen {
+               font-size: 160px;
+          }
+          @include xl-screen {
+               font-size: 140px;
+          }
+          @include lg-screen {
+               font-size: 120px;
+          }
+          @include md-screen {
+               font-size: 110px;
+          }
+          @include sm-screen {
+               font-size: 80px;
+          }
+          @include msm-screen {
+               font-size: 58px;
+          }
+
+     }
+
+
+
+}
+
+

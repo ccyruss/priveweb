@@ -1,0 +1,15 @@
+.font {
+    &-heading {
+        font-family: var(--heading-font);
+    }
+    &-body {
+        font-family: var(--body-font);
+    }
+    &-sofia {
+        font-family: var(--sofia-font);
+    }
+    &-dmsans {
+        font-family: var(--dmsans-font);
+    }
+}
+
