@@ -60,6 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($_FILES['hover_image']['tmp_name'], '../uploads/tours/' . $name);
         $data['hover_image'] = $name;
     }
+    if (!empty($_FILES['banner_image']['name'])) {
+        $name = time() . '_b_' . $_FILES['banner_image']['name'];
+        move_uploaded_file($_FILES['banner_image']['tmp_name'], '../uploads/tours/' . $name);
+        $data['banner_image'] = $name;
+    }
 
     if (isset($_POST['id']) && !empty($_POST['id'])) {
         // Update
@@ -75,6 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql .= ", main_image=:main_image";
         if (isset($data['hover_image']))
             $sql .= ", hover_image=:hover_image";
+        if (isset($data['banner_image']))
+            $sql .= ", banner_image=:banner_image";
         $sql .= " WHERE id = :id";
         $data['id'] = $_POST['id'];
         $pdo->prepare($sql)->execute($data);
@@ -84,10 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data['main_image'] = '';
         if (!isset($data['hover_image']))
             $data['hover_image'] = '';
+        if (!isset($data['banner_image']))
+            $data['banner_image'] = '';
         $pdo->prepare("INSERT INTO tours (cat_id, title_tr, title_en, slug_tr, slug_en, location_tr, location_en, duration_tr, duration_en, 
-                        short_desc_tr, short_desc_en, content_tr, content_en, advance_facilities_tr, advance_facilities_en, expect_desc_tr, expect_desc_en, departure_location_tr, departure_location_en, departure_time, return_time, price, original_price, max_guests, map_iframe, video_url, start_date, end_date, is_featured, status, main_image, hover_image) 
+                        short_desc_tr, short_desc_en, content_tr, content_en, advance_facilities_tr, advance_facilities_en, expect_desc_tr, expect_desc_en, departure_location_tr, departure_location_en, departure_time, return_time, price, original_price, max_guests, map_iframe, video_url, start_date, end_date, is_featured, status, main_image, hover_image, banner_image) 
                        VALUES (:cat_id, :title_tr, :title_en, :slug_tr, :slug_en, :location_tr, :location_en, :duration_tr, :duration_en, 
-                        :short_desc_tr, :short_desc_en, :content_tr, :content_en, :advance_facilities_tr, :advance_facilities_en, :expect_desc_tr, :expect_desc_en, :departure_location_tr, :departure_location_en, :departure_time, :return_time, :price, :original_price, :max_guests, :map_iframe, :video_url, :start_date, :end_date, :is_featured, :status, :main_image, :hover_image)")
+                        :short_desc_tr, :short_desc_en, :content_tr, :content_en, :advance_facilities_tr, :advance_facilities_en, :expect_desc_tr, :expect_desc_en, :departure_location_tr, :departure_location_en, :departure_time, :return_time, :price, :original_price, :max_guests, :map_iframe, :video_url, :start_date, :end_date, :is_featured, :status, :main_image, :hover_image, :banner_image)")
             ->execute($data);
     }
     alert('Tur başarıyla kaydedildi.', 'success');
@@ -178,6 +187,7 @@ include 'header.php';
                                                     data-start_date="<?php echo !empty($t['start_date']) ? date('Y-m-d\TH:i', strtotime($t['start_date'])) : ''; ?>"
                                                     data-end_date="<?php echo !empty($t['end_date']) ? date('Y-m-d\TH:i', strtotime($t['end_date'])) : ''; ?>"
                                                     data-is_featured="<?php echo $t['is_featured']; ?>"
+                                                    data-banner_image="<?php echo $t['banner_image']; ?>"
                                                     data-status="<?php echo $t['status']; ?>">
                                                     <i class="fa fa-pencil"></i>
                                                 </button>
@@ -238,9 +248,11 @@ include 'header.php';
                                 id="duration_tr" class="form-control"></div>
                         <div class="col-md-3 mb-3"><label>Süre (EN)</label><input type="text" name="duration_en"
                                 id="duration_en" class="form-control"></div>
-                        <div class="col-md-6 mb-3"><label>Ana Görsel</label><input type="file" name="main_image"
+                        <div class="col-md-4 mb-3"><label>Ana Görsel</label><input type="file" name="main_image"
                                 class="form-control"></div>
-                        <div class="col-md-6 mb-3"><label>Hover Görsel</label><input type="file" name="hover_image"
+                        <div class="col-md-4 mb-3"><label>Hover Görsel</label><input type="file" name="hover_image"
+                                class="form-control"></div>
+                        <div class="col-md-4 mb-3"><label>Banner Görseli (Detay Sayfası)</label><input type="file" name="banner_image"
                                 class="form-control"></div>
 
                         <!-- NEW FIELDS -->

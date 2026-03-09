@@ -5,14 +5,15 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $full_name = clean($_POST['full_name']);
+    $company_name = clean($_POST['company_name'] ?? '');
     $email = clean($_POST['email']);
     $phone = clean($_POST['phone'] ?? '');
     $subject = clean($_POST['subject']);
     $message = clean($_POST['message']);
 
     // Log to DB
-    $stmt = $pdo->prepare("INSERT INTO messages (full_name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$full_name, $email, $phone, $subject, $message]);
+    $stmt = $pdo->prepare("INSERT INTO messages (full_name, company_name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$full_name, $company_name, $email, $phone, $subject, $message]);
 
     // Send Mail
     require 'vendor/autoload.php';
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->Body = "
             <h3>İletişim Formu Mesajı</h3>
             <p><strong>Ad Soyad:</strong> $full_name</p>
+            <p><strong>Firma Adı:</strong> $company_name</p>
             <p><strong>E-posta:</strong> $email</p>
             <p><strong>Telefon:</strong> $phone</p>
             <p><strong>Konu:</strong> $subject</p>

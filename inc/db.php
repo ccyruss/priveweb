@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Istanbul');
+error_reporting(0);
+ini_set('display_errors', 0);
 // CORE PHP - Database Connection
 $host = 'localhost';
 $db = 'prive_db';
@@ -17,12 +19,11 @@ $options = [
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
 
-     // Auto-passive logic for tours
      $now = date('Y-m-d H:i:s');
      $pdo->exec("UPDATE tours SET status = 0 WHERE end_date IS NOT NULL AND end_date < '$now' AND status = 1");
 
 } catch (\PDOException $e) {
-     // For production, you might want to log this instead of showing it
+
      die("Veritabanı bağlantı hatası: " . $e->getMessage());
 }
 ?>

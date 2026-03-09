@@ -11,7 +11,7 @@ if (!$tour)
 
 <!-- ==================== Breadcrumb Start Here ==================== -->
 <section class="breadcrumb-area background-img"
-    data-background-image="uploads/tours/<?php echo $tour['main_image']; ?>">
+    data-background-image="uploads/tours/<?php echo !empty($tour['banner_image']) ? $tour['banner_image'] : $tour['main_image']; ?>">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -370,31 +370,83 @@ if (count($vids) > 0):
                 <div class="package-details-sidebar row-gap-6 d-flex flex-column">
                     <div class="package-details-sidebar-book tw-p-8 tw-rounded-xl bg-white" data-aos="fade-up"
                         data-aos-duration="1000" data-aos-delay="200">
-                        <h4 class="tw-text-2xl tw-mb-6 text-main-600">
-                            <?php echo lang('Bilgi Alın', 'Get Information'); ?>
-                        </h4>
+
+                        <div class="form-steps-indicator tw-mb-8 d-flex align-items-center tw-gap-4">
+                            <div class="step-item active" id="step1Indicator">
+                                <div class="step-number">1</div>
+                                <div class="step-label"><?php echo lang('İletişim Bilgileri', 'Contact Info'); ?></div>
+                            </div>
+                            <div class="step-line"></div>
+                            <div class="step-item" id="step2Indicator">
+                                <div class="step-number">2</div>
+                                <div class="step-label"><?php echo lang('Talep Detayları', 'Request Details'); ?></div>
+                            </div>
+                        </div>
+
                         <div id="formResult" class="tw-mb-4 d-none"></div>
+
                         <form id="tourContactForm" action="send_message.php" method="POST">
                             <input type="hidden" name="subject" value="Tour Inquiry: <?php echo $tour['title_tr']; ?>">
-                            <div class="tw-mb-4">
-                                <input type="text" name="full_name"
-                                    class="form-control bg-transparent tw-h-12 border-neutral-200 focus-border-main-600 tw-rounded-lg"
-                                    placeholder="<?php echo lang('Adınız', 'Your Name'); ?>" required>
+
+                            <!-- Step 1 -->
+                            <div id="formStep1">
+                                <div class="tw-mb-5">
+                                    <label
+                                        class="form-label fw-bold tw-mb-2"><?php echo lang('Adınız *', 'Name *'); ?></label>
+                                    <input type="text" name="full_name"
+                                        class="form-control bg-transparent tw-h-14 border-neutral-200 focus-border-main-600 tw-rounded-xl"
+                                        placeholder="<?php echo lang('Adınız', 'Name'); ?>" required>
+                                </div>
+                                <div class="tw-mb-5">
+                                    <label
+                                        class="form-label fw-bold tw-mb-2"><?php echo lang('Firma Adı', 'Company Name'); ?></label>
+                                    <input type="text" name="company_name"
+                                        class="form-control bg-transparent tw-h-14 border-neutral-200 focus-border-main-600 tw-rounded-xl"
+                                        placeholder="<?php echo lang('Firma Adı', 'Company Name'); ?>">
+                                </div>
+                                <div class="tw-mb-5">
+                                    <label
+                                        class="form-label fw-bold tw-mb-2"><?php echo lang('Telefon *', 'Phone *'); ?></label>
+                                    <div class="phone-input-wrapper">
+                                        <input type="tel" id="tour_phone" name="phone"
+                                            class="form-control bg-transparent tw-h-14 border-neutral-200 focus-border-main-600 tw-rounded-xl w-100"
+                                            placeholder="<?php echo lang('Telefon', 'Phone'); ?>" required>
+                                    </div>
+                                </div>
+                                <div class="tw-mb-8">
+                                    <label
+                                        class="form-label fw-bold tw-mb-2"><?php echo lang('E-Posta *', 'E-Mail *'); ?></label>
+                                    <input type="email" name="email"
+                                        class="form-control bg-transparent tw-h-14 border-neutral-200 focus-border-main-600 tw-rounded-xl"
+                                        placeholder="<?php echo lang('E-posta', 'E-Mail'); ?>" required>
+                                </div>
+                                <button type="button" id="nextStepBtn"
+                                    class="btn w-100 text-uppercase fw-bold text-main-600 bg-main-two-600 tw-py-5 tw-rounded-4xl d-flex justify-content-center align-items-center">
+                                    <?php echo lang('İleri', 'Next'); ?>
+                                </button>
                             </div>
-                            <div class="tw-mb-4">
-                                <input type="email" name="email"
-                                    class="form-control bg-transparent tw-h-12 border-neutral-200 focus-border-main-600 tw-rounded-lg"
-                                    placeholder="<?php echo lang('E-posta', 'Email'); ?>" required>
+
+                            <!-- Step 2 -->
+                            <div id="formStep2" class="d-none">
+                                <div class="tw-mb-8">
+                                    <label
+                                        class="form-label fw-bold tw-mb-2"><?php echo lang('Mesajınız', 'Your Message'); ?></label>
+                                    <textarea name="message"
+                                        class="form-control bg-transparent border-neutral-200 focus-border-main-600 tw-rounded-xl"
+                                        rows="6"
+                                        placeholder="<?php echo lang('Nasıl yardımcı olabiliriz?', 'How can we help?'); ?>"></textarea>
+                                </div>
+                                <div class="d-flex tw-gap-3">
+                                    <button type="button" id="prevStepBtn"
+                                        class="btn w-50 text-uppercase fw-bold border-neutral-200 tw-py-5 tw-rounded-4xl d-flex justify-content-center align-items-center">
+                                        <?php echo lang('Geri', 'Back'); ?>
+                                    </button>
+                                    <button type="submit"
+                                        class="btn w-50 text-uppercase fw-bold text-main-600 bg-main-two-600 tw-py-5 tw-rounded-4xl d-flex justify-content-center align-items-center tw-gap-2">
+                                        <?php echo lang('Gönder', 'Send'); ?> <i class="ph ph-arrow-up-right"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="tw-mb-4">
-                                <textarea name="message"
-                                    class="form-control bg-transparent border-neutral-200 focus-border-main-600 tw-rounded-lg"
-                                    rows="4" placeholder="<?php echo lang('Mesajınız', 'Message'); ?>"></textarea>
-                            </div>
-                            <button type="submit"
-                                class="btn w-100 tw-mt-5 text-uppercase fw-bold text-main-600 bg-main-two-600 tw-py-4 tw-rounded-4xl d-flex justify-content-center align-items-center tw-gap-2">
-                                <?php echo lang('Gönder', 'Send'); ?> <i class="ph ph-arrow-up-right"></i>
-                            </button>
                         </form>
                     </div>
                 </div>
@@ -404,24 +456,153 @@ if (count($vids) > 0):
     </div>
 </section>
 
+<style>
+    .form-steps-indicator {
+        position: relative;
+    }
+
+    .step-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .step-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid #D1D5DB;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #9CA3AF;
+        transition: all 0.3s;
+    }
+
+    .step-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #9CA3AF;
+        transition: all 0.3s;
+    }
+
+    .step-item.active .step-number {
+        border-color: #A855F7;
+        /* Using a vibrant color for active step if main is too dark */
+        color: #A855F7;
+    }
+
+    .step-item.active .step-label {
+        color: #A855F7;
+    }
+
+    /* Adjusted based on theme main color if possible */
+    .step-item.active .step-number {
+        border-color: var(--main-600);
+        color: var(--main-600);
+    }
+
+    .step-item.active .step-label {
+        color: var(--main-600);
+    }
+
+    .step-line {
+        position: absolute;
+        top: 16px;
+        left: 25%;
+        right: 25%;
+        height: 1px;
+        background: #D1D5DB;
+        z-index: 0;
+    }
+
+    .phone-input-wrapper .iti {
+        width: 100%;
+    }
+
+    .iti__flag-container {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: var(--main-600) !important;
+    }
+</style>
+
+<!-- Styles & Scripts for intl-tel-input -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@21.0.8/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21.0.8/build/js/intlTelInput.min.js"></script>
+
 <?php include 'footer.php'; ?>
 <script>
     $(document).ready(function () {
+        // Initialize Phone Input
+        const phoneInput = document.querySelector("#tour_phone");
+        const iti = window.intlTelInput(phoneInput, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@21.0.8/build/js/utils.js",
+            initialCountry: "tr",
+            separateDialCode: true,
+            preferredCountries: ["tr", "us", "gb", "de"]
+        });
+
+        // Step Navigation
+        $('#nextStepBtn').on('click', function () {
+            const form = document.querySelector('#tourContactForm');
+            if(form.full_name.checkValidity() && form.email.checkValidity() && form.phone.checkValidity()) {
+                $('#formStep1').addClass('d-none');
+                $('#formStep2').removeClass('d-none');
+                $('#step1Indicator').removeClass('active');
+                $('#step2Indicator').addClass('active');
+            } else {
+                form.reportValidity();
+            }
+        });
+
+        $('#prevStepBtn').on('click', function () {
+            $('#formStep2').addClass('d-none');
+            $('#formStep1').removeClass('d-none');
+            $('#step2Indicator').removeClass('active');
+            $('#step1Indicator').addClass('active');
+        });
+
         $('#tourContactForm').on('submit', function (e) {
             e.preventDefault();
             var form = $(this);
             var resultDiv = $('#formResult');
             var submitBtn = form.find('button[type="submit"]');
+
+            // Get full phone number with dial code
+            const fullPhoneNumber = iti.getNumber();
+
             submitBtn.prop('disabled', true).html('<i class="ph ph-spinner-gap tw-animate-spin"></i> <?php echo lang("Gönderiliyor...", "Sending..."); ?>');
+
+            let formData = form.serializeArray();
+            // Update phone field in serialized data
+            formData.forEach(field => {
+                if(field.name === 'phone') field.value = fullPhoneNumber;
+            });
+
             $.ajax({
                 url: 'send_message.php',
                 method: 'POST',
-                data: form.serialize(),
+                data: formData,
                 dataType: 'json',
                 success: function (response) {
                     if(response.status === 'success') {
                         resultDiv.removeClass('d-none alert-danger').addClass('alert alert-success').html(response.message);
                         form[0].reset();
+                        // Reset steps
+                        $('#formStep2').addClass('d-none');
+                        $('#formStep1').removeClass('d-none');
+                        $('#step2Indicator').removeClass('active');
+                        $('#step1Indicator').addClass('active');
                     } else {
                         resultDiv.removeClass('d-none alert-success').addClass('alert alert-danger').html(response.message);
                     }

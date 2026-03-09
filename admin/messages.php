@@ -37,6 +37,9 @@ include 'header.php';
                                 <?php echo $m['full_name']; ?> (
                                 <?php echo $m['email']; ?>)
                             </p>
+                            <p><strong>Firma Adı:</strong>
+                                <?php echo $m['company_name']; ?>
+                            </p>
                             <p><strong>Telefon:</strong>
                                 <?php echo $m['phone']; ?>
                             </p>
