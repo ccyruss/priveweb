@@ -1,0 +1,5 @@
+echo inc/db.php >> .gitignore
+git rm --cached inc/db.php
+git add .gitignore
+git commit -m "ignore db.php"
+git push
